@@ -3,9 +3,11 @@
 Este projeto consiste em uma arquitetura de microserviços que se comunicam entre si por meio de mensageria assíncrona usando RabbitMQ. Cada microserviço é responsável por uma parte específica da lógica de negócios e se comunica com outros serviços por meio de mensagens.
 
 ## Tecnologias Utilizadas
-ASP.NET Core: Framework para desenvolvimento de microserviços em C#.
-RabbitMQ: Servidor de mensageria que suporta comunicação assíncrona entre os microserviços.
-Swagger: Ferramenta de documentação de APIs para facilitar o teste e a compreensão dos endpoints dos microserviços.
+- ASP.NET Core: Framework para desenvolvimento de microserviços em C#.
+  
+- RabbitMQ: Servidor de mensageria que suporta comunicação assíncrona entre os microserviços.
+  
+- Swagger: Ferramenta de documentação de APIs para facilitar o teste e a compreensão dos endpoints dos microserviços.
 
 ## Estrutura do Projeto
 O projeto está estruturado da seguinte forma:
