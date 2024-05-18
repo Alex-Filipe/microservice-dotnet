@@ -3,12 +3,14 @@ using Microsoft.EntityFrameworkCore;
 using UserService.Interfaces;
 using UserService.Repositories;
 using UserService.Services;
+using UserService.Producers;
 
 var builder = WebApplication.CreateBuilder(args);
 
 // Add services to the container.
 builder.Services.AddScoped<UserServices>();
 builder.Services.AddScoped<IUserRepository, UserRepository>();
+builder.Services.AddSingleton<RabbitMQClient>();
 
 //Database Configuration
 builder.Services.AddDbContext<ApplicationDbContext>(options =>

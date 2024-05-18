@@ -4,13 +4,14 @@ using System.Linq;
 using System.Threading.Tasks;
 using UserService.Dtos;
 using UserService.Interfaces;
+using UserService.Producers;
 
 namespace UserService.Services
 {
-    public class UserServices(IUserRepository userRepository)
+    public class UserServices(IUserRepository userRepository, RabbitMQClient rabbitMQClient)
     {
         private readonly IUserRepository _userRepository = userRepository;
-
+        private readonly RabbitMQClient _rabbitMQClient = rabbitMQClient;
         public void CreateUser(CreateUserDto user)
         {
             try
@@ -31,6 +32,7 @@ namespace UserService.Services
                 };
 
                 _userRepository.CreateUser(newUser);
+                _rabbitMQClient.SendMessageUserToQueue("user_email_queue", user.Email);
             }
             catch (Exception e)
             {
