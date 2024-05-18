@@ -12,11 +12,13 @@ Este projeto consiste em uma arquitetura de microserviços que se comunicam entr
 ## Estrutura do Projeto
 O projeto está estruturado da seguinte forma:
 
-Microserviço UserService: Microserviço para usuário, onde possue apenas o metodo create e que envia uma mensagem para ser consumida pelo Microserviço de Email.
-Microserviço EmailService: Somente consome a mensagem do RabbitMQ e envia um email de Welcome.
+- Microserviço UserService: Microserviço para usuário, onde possue apenas o metodo create e que envia uma mensagem para ser consumida pelo Microserviço de Email.
+
+- Microserviço EmailService: Somente consome a mensagem do RabbitMQ e envia um email de Welcome.
 
 ## Configuração e Execução
 ### Configurar o RabbitMQ:
 
 - Instale e inicie o RabbitMQ no seu ambiente local ou utilize uma instância na nuvem.
+  
 - Configure as filas e os exchanges conforme necessário para cada microserviço.
