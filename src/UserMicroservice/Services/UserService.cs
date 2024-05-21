@@ -5,6 +5,7 @@ using System.Threading.Tasks;
 using UserMicroservice.Producers;
 using UserMicroservice.Dtos;
 using UserMicroservice.Interfaces;
+using UserMicroserice.Dtos;
 
 namespace UserMicroservice.Services
 {
@@ -12,6 +13,18 @@ namespace UserMicroservice.Services
     {
         private readonly IUserRepository _userRepository = userRepository;
         private readonly UserProducer _rabbitMQClient = userProducer;
+
+        public List<AllUserDto> GetAllUsers()
+        {
+            try
+            {
+                return _userRepository.GetAllUsers();
+            }
+            catch (Exception e)
+            {
+                throw new Exception(e.Message);
+            }
+        }
         public void CreateUser(CreateUserDto user)
         {
             try

@@ -1,4 +1,5 @@
 
+using UserMicroserice.Dtos;
 using UserMicroservice.Dtos;
 using UserMicroservice.Models;
 
@@ -8,6 +9,7 @@ namespace UserMicroservice.Interfaces
     {
         User? GetUserByEmail(string email);
         User? GetUserById(int id);
+        List<AllUserDto> GetAllUsers();
         void CreateUser(CreateUserDto newUser);
         void UpdateUser(UpdateUserDto updatedUser);
     }

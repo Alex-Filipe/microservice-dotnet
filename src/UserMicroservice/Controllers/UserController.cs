@@ -10,6 +10,20 @@ namespace UserMicroservice.Controllers
     {
         private readonly UserService _userService = userServices;
 
+        [HttpGet("users")]
+        public IActionResult GetAllUsers()
+        {
+            try
+            {
+                var users = _userService.GetAllUsers();
+                return Ok(users);
+            }
+            catch (Exception e)
+            {
+                return StatusCode(500, new { Message = $"Erro: {e.Message}" });
+            }
+        }
+
         [HttpPost("new_user")]
         public IActionResult CreateUser([FromBody] CreateUserDto user)
         {
