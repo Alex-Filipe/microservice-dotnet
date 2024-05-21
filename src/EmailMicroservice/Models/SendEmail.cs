@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
 
-namespace EmailService.Model
+namespace EmailMicroservice.Model
 {
     public class SendEmail
     {

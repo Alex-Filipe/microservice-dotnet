@@ -1,6 +1,6 @@
 using System.ComponentModel.DataAnnotations;
 
-namespace EmailService.DTOs
+namespace EmailMicroservice.DTOs
 {
     public class WelcomeEmailDto
     {

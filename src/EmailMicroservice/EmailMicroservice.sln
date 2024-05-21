@@ -3,7 +3,7 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio Version 17
 VisualStudioVersion = 17.8.34408.163
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "UserService", "UserService.csproj", "{9200E116-3958-4F71-9CEC-D3E6F3F1F5B7}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "EmailMicroservice", "EmailMicroservice.csproj", "{976E878C-57EC-4F5D-8066-19A7418B0FA7}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -11,15 +11,15 @@ Global
 		Release|Any CPU = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(ProjectConfigurationPlatforms) = postSolution
-		{9200E116-3958-4F71-9CEC-D3E6F3F1F5B7}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{9200E116-3958-4F71-9CEC-D3E6F3F1F5B7}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{9200E116-3958-4F71-9CEC-D3E6F3F1F5B7}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{9200E116-3958-4F71-9CEC-D3E6F3F1F5B7}.Release|Any CPU.Build.0 = Release|Any CPU
+		{976E878C-57EC-4F5D-8066-19A7418B0FA7}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{976E878C-57EC-4F5D-8066-19A7418B0FA7}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{976E878C-57EC-4F5D-8066-19A7418B0FA7}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{976E878C-57EC-4F5D-8066-19A7418B0FA7}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
-		SolutionGuid = {A1F3A5A5-36CD-4F58-919F-CC044486A5F2}
+		SolutionGuid = {9523C11E-A225-403D-93CA-2B941D97AE19}
 	EndGlobalSection
 EndGlobal

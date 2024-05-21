@@ -1,13 +1,9 @@
 using System.Text;
-using System.Threading;
-using System.Threading.Tasks;
-using EmailService.Services;
-using Microsoft.Extensions.DependencyInjection;
-using Microsoft.Extensions.Hosting;
+using EmailMicroservice.Services;
 using RabbitMQ.Client;
 using RabbitMQ.Client.Events;
 
-namespace EmailService.Consumers
+namespace EmailMicroservice.Consumers
 {
     public class MessageWelcomeConsumer(IServiceScopeFactory scopeFactory, IWebHostEnvironment environment) : IHostedService
     {
@@ -38,7 +34,7 @@ namespace EmailService.Consumers
                     Console.WriteLine($"Received message: {userEmail}");
 
                     using var scope = _scopeFactory.CreateScope();
-                    var emailService = scope.ServiceProvider.GetRequiredService<SendEmailServices>();
+                    var emailService = scope.ServiceProvider.GetRequiredService<SendEmailService>();
 
                     // Path to the template
                     var emailTemplatePath = Path.Combine(_environment.ContentRootPath, "Templates", "WelcomeEmailTemplate.html");

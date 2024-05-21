@@ -1,10 +1,11 @@
-using EmailService.Consumers;
-using EmailService.Services;
+using EmailMicroservice.Consumers;
+using EmailMicroservice.Services;
 
 var builder = WebApplication.CreateBuilder(args);
 
 // Add services to the container.
-builder.Services.AddScoped<SendEmailServices>();
+
+builder.Services.AddScoped<SendEmailService>();
 builder.Services.AddSingleton<IHostedService, MessageWelcomeConsumer>();
 builder.Services.AddControllers();
 // Learn more about configuring Swagger/OpenAPI at https://aka.ms/aspnetcore/swashbuckle

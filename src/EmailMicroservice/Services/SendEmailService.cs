@@ -4,11 +4,11 @@ using System.Linq;
 using System.Net.Mail;
 using System.Reflection;
 using System.Threading.Tasks;
-using EmailService.Model;
+using EmailMicroservice.Model;
 
-namespace EmailService.Services
+namespace EmailMicroservice.Services
 {
-    public class SendEmailServices(IConfiguration configuration)
+    public class SendEmailService(IConfiguration configuration)
     {
         private readonly IConfiguration _configuration = configuration;
 
