@@ -39,5 +39,19 @@ namespace UserMicroservice.Services
                 throw new Exception(e.Message);
             }
         }
+
+        public void UpdateUser(UpdateUserDto updatedUser)
+        {
+            try
+            {
+                var existingUserWithId = _userRepository.GetUserById(updatedUser.Id) ?? throw new ArgumentException("O email já está sendo usado por outro usuário.");
+                
+                _userRepository.UpdateUser(updatedUser);
+            }
+            catch (Exception e)
+            {
+                throw new Exception(e.Message);
+            }
+        }
     }
 }

@@ -24,5 +24,20 @@ namespace UserMicroservice.Controllers
                 return StatusCode(500, new { Message = $"Erro: {e.Message}" });
             }
         }
+
+        [HttpPut("update_user/{id}")]
+        public IActionResult UpdateUser(int id, [FromBody] UpdateUserDto userUpdateRequest)
+        {
+            try
+            {
+                userUpdateRequest.Id = id; 
+                _userService.UpdateUser(userUpdateRequest);
+                return Ok(new { Message = "Usuário atualizado com sucesso" });
+            }
+            catch (Exception e)
+            {
+                return StatusCode(500, new { Message = $"Erro: {e.Message}" });
+            }
+        }
     }
 }
