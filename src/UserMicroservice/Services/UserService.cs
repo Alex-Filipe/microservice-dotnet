@@ -6,6 +6,7 @@ using UserMicroservice.Producers;
 using UserMicroservice.Dtos;
 using UserMicroservice.Interfaces;
 using UserMicroserice.Dtos;
+using UserMicroservice.Models;
 
 namespace UserMicroservice.Services
 {
@@ -53,6 +54,19 @@ namespace UserMicroservice.Services
             }
         }
 
+        public ShowUserDto ShowUser(int roleId)
+        {
+            try
+            {
+                var user = _userRepository.ShowUser(roleId)  ?? throw new Exception("Usuário não encontrado.");
+                return user;
+            }
+            catch (Exception e)
+            {
+                throw new Exception(e.Message);
+            }
+        }
+
         public void UpdateUser(UpdateUserDto updatedUser)
         {
             try
@@ -69,6 +83,20 @@ namespace UserMicroservice.Services
             catch (Exception e)
             {
                 throw new Exception("Erro ao atualizar usuário. Contate o suporte!", e);
+            }
+        }
+
+        public void DeleteUser(int id)
+        {
+            try
+            {
+                var existingUser = _userRepository.GetUserById(id) ?? throw new Exception("Usuário não existe.");
+
+                _userRepository.DeleteUser(id);
+            }
+            catch (Exception e)
+            {
+                throw new Exception(e.Message);
             }
         }
 

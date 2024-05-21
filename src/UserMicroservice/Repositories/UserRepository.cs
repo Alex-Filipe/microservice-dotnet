@@ -53,7 +53,7 @@ namespace UserMicroservice.Repositories
                                    Email = user.Email,
                                    Phone = user.Phone
                                })
-                               .OrderBy(u => u.Name)];  // Correção do método
+                               .OrderBy(u => u.Name)];
             }
             catch (Exception e)
             {
@@ -86,6 +86,27 @@ namespace UserMicroservice.Repositories
             }
         }
 
+        public ShowUserDto? ShowUser(int id)
+        {
+            try
+            {
+                return _context.Users
+                               .Where(user => user.Id == id)
+                               .Select(user => new ShowUserDto
+                               {
+                                   Id = user.Id,
+                                   Name = user.Name,
+                                   Email = user.Email,
+                                   Phone = user.Phone
+                               })
+                               .FirstOrDefault();
+            }
+            catch (Exception e)
+            {
+                throw new Exception("Um erro ocorreu ao trazer o usuário. Contate o suporte!", e);
+            }
+        }
+
         public void UpdateUser(User existingUser, UpdateUserDto updatedUser)
         {
             using var transaction = _context.Database.BeginTransaction();
@@ -102,6 +123,24 @@ namespace UserMicroservice.Repositories
             {
                 transaction.Rollback();
                 throw new ApplicationException("Erro ao atualizar usuário no banco. Contate o suporte!", e);
+            }
+        }
+
+        public void DeleteUser(int id)
+        {
+            using var transaction = _context.Database.BeginTransaction();
+            try
+            {
+                var user = GetUserById(id) ?? throw new Exception("Erro ao encontrar o usuário!");
+
+                _context.Users.Remove(user);
+                _context.SaveChanges();
+                transaction.Commit();
+            }
+            catch (Exception e)
+            {
+                transaction.Rollback();
+                throw new ApplicationException("Erro ao deletar usuário. Contate o suporte!", e);
             }
         }
 
