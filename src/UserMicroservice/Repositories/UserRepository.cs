@@ -20,7 +20,7 @@ namespace UserMicroservice.Repositories
             }
             catch (Exception e)
             {
-                throw new ApplicationException("Um erro ocorreu ao trazer o usuários. Contate o suporte!", e);
+                throw new Exception("Um erro ocorreu ao trazer o usuários. Contate o suporte!", e);
             }
         }
 
@@ -32,7 +32,7 @@ namespace UserMicroservice.Repositories
             }
             catch (Exception e)
             {
-                throw new ApplicationException("Um erro ocorreu ao trazer o usuários. Contate o suporte!", e);
+                throw new Exception("Um erro ocorreu ao trazer o usuários. Contate o suporte!", e);
             }
         }
 
@@ -52,7 +52,7 @@ namespace UserMicroservice.Repositories
             }
             catch (Exception e)
             {
-                throw new ApplicationException("Um erro ocorreu ao trazer todos os usuários. Contate o suporte!", e);
+                throw new Exception("Um erro ocorreu ao trazer todos os usuários. Contate o suporte!", e);
             }
         }
 
@@ -77,23 +77,20 @@ namespace UserMicroservice.Repositories
             catch (Exception e)
             {
                 transaction.Rollback();
-                throw new ApplicationException("Erro ao criar usuário no banco. Contate o suporte!", e);
+                throw new Exception("Erro ao criar usuário no banco. Contate o suporte!", e);
             }
         }
 
-        public void UpdateUser(UpdateUserDto updatedUser)
+        public void UpdateUser(User existingUser, UpdateUserDto updatedUser)
         {
             using var transaction = _context.Database.BeginTransaction();
             try
             {
-                var user = _context.Users.FirstOrDefault(u => u.Id == updatedUser.Id) ?? throw new ArgumentException("Usuário não encontrado");
-
-                user.Name = updatedUser.Name;
-                user.Email = updatedUser.Email;
-                user.Phone = updatedUser.Phone;
+                existingUser.Name = updatedUser.Name;
+                existingUser.Email = updatedUser.Email;
+                existingUser.Phone = updatedUser.Phone;
 
                 _context.SaveChanges();
-
                 transaction.Commit();
             }
             catch (Exception e)
@@ -102,5 +99,6 @@ namespace UserMicroservice.Repositories
                 throw new ApplicationException("Erro ao atualizar usuário no banco. Contate o suporte!", e);
             }
         }
+
     }
 }

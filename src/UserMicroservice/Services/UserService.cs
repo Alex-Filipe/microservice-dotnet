@@ -57,14 +57,25 @@ namespace UserMicroservice.Services
         {
             try
             {
-                var existingUserWithId = _userRepository.GetUserById(updatedUser.Id) ?? throw new ArgumentException("O email já está sendo usado por outro usuário.");
-                
-                _userRepository.UpdateUser(updatedUser);
+                var existingUser = _userRepository.GetUserById(updatedUser.Id) ?? throw new Exception("Usuário não existe.");
+
+                bool emailInUse = _userRepository.GetUserByEmail(updatedUser.Email) != null && existingUser.Email != updatedUser.Email;
+                if (emailInUse)
+                {
+                    throw new Exception("Já existe um usuário com esse e-mail.");
+                }
+
+                _userRepository.UpdateUser(existingUser, updatedUser);
+            }
+            catch (ArgumentException e)
+            {
+                throw new ArgumentException(e.Message);
             }
             catch (Exception e)
             {
-                throw new Exception(e.Message);
+                throw new Exception("Erro ao atualizar usuário. Contate o suporte!", e);
             }
         }
+
     }
 }

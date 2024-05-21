@@ -11,6 +11,6 @@ namespace UserMicroservice.Interfaces
         User? GetUserById(int id);
         List<AllUserDto> GetAllUsers();
         void CreateUser(CreateUserDto newUser);
-        void UpdateUser(UpdateUserDto updatedUser);
+        void UpdateUser(User existingUser, UpdateUserDto updatedUser);
     }
 }
