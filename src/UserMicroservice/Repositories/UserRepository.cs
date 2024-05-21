@@ -24,6 +24,11 @@ namespace UserMicroservice.Repositories
             }
         }
 
+        public bool IsEmailInUse(string email, int userId)
+        {
+            return _context.Users.Any(u => u.Email == email && u.Id != userId);
+        }
+
         public User? GetUserById(int id)
         {
             try

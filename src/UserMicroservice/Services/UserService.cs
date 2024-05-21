@@ -12,7 +12,7 @@ namespace UserMicroservice.Services
     public class UserService(IUserRepository userRepository, UserProducer userProducer)
     {
         private readonly IUserRepository _userRepository = userRepository;
-        private readonly UserProducer _rabbitMQClient = userProducer;
+        private readonly UserProducer _userProducer = userProducer;
 
         public List<AllUserDto> GetAllUsers()
         {
@@ -45,7 +45,7 @@ namespace UserMicroservice.Services
                 };
 
                 _userRepository.CreateUser(newUser);
-                _rabbitMQClient.SendMessageUserToQueue("user_email_queue", user.Email);
+                _userProducer.SendMessageUserToQueue("user_email_queue", user.Email);
             }
             catch (Exception e)
             {
@@ -59,17 +59,12 @@ namespace UserMicroservice.Services
             {
                 var existingUser = _userRepository.GetUserById(updatedUser.Id) ?? throw new Exception("Usuário não existe.");
 
-                bool emailInUse = _userRepository.GetUserByEmail(updatedUser.Email) != null && existingUser.Email != updatedUser.Email;
-                if (emailInUse)
+                if (_userRepository.IsEmailInUse(updatedUser.Email, updatedUser.Id))
                 {
-                    throw new Exception("Já existe um usuário com esse e-mail.");
+                    throw new Exception("Já existe um usuário com este email.");
                 }
 
                 _userRepository.UpdateUser(existingUser, updatedUser);
-            }
-            catch (ArgumentException e)
-            {
-                throw new ArgumentException(e.Message);
             }
             catch (Exception e)
             {

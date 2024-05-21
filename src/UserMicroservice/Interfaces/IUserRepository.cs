@@ -8,6 +8,7 @@ namespace UserMicroservice.Interfaces
     public interface IUserRepository
     {
         User? GetUserByEmail(string email);
+        bool IsEmailInUse(string email, int userId);
         User? GetUserById(int id);
         List<AllUserDto> GetAllUsers();
         void CreateUser(CreateUserDto newUser);
