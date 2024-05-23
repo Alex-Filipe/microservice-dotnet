@@ -1,6 +1,4 @@
-
-using UserMicroserice.Dtos;
-using UserMicroservice.Dtos;
+using UserMicroserice.Dtos.UserDTOs;
 using UserMicroservice.Models;
 
 namespace UserMicroservice.Interfaces

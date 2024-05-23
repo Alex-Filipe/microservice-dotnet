@@ -1,5 +1,5 @@
 ﻿using Microsoft.AspNetCore.Mvc;
-using UserMicroservice.Dtos;
+using UserMicroserice.Dtos.UserDTOs;
 using UserMicroservice.Services;
 
 namespace UserMicroservice.Controllers

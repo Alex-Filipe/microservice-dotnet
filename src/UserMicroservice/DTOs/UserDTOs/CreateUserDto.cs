@@ -1,7 +1,6 @@
 ﻿using System.ComponentModel.DataAnnotations;
-using System.ComponentModel.DataAnnotations.Schema;
 
-namespace UserMicroservice.Dtos
+namespace UserMicroserice.Dtos.UserDTOs
 {
     public class CreateUserDto
     {
@@ -18,7 +17,7 @@ namespace UserMicroservice.Dtos
         [StringLength(255, ErrorMessage = "O campo Senha não pode ter mais do que 255 caracteres.")]
         public required string Password { get; set; }
 
-        [Required(ErrorMessage = "O campo phone é obrigatório.")]
-        public required string Phone { get; set; }
+        [Required(ErrorMessage = "O campo data de nascimento é obrigatório.")]
+        public required DateOnly DateBirth { get; set; }
     }
 }

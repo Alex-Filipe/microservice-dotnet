@@ -1,7 +1,7 @@
 ﻿using System.ComponentModel.DataAnnotations;
 using System.ComponentModel.DataAnnotations.Schema;
 
-namespace UserMicroservice.Dtos
+namespace UserMicroserice.Dtos.UserDTOs
 {
     public class UpdateUserDto
     {
@@ -19,7 +19,7 @@ namespace UserMicroservice.Dtos
         public required string Email { get; set; }
 
         [Column("phone")]
-        [Required(ErrorMessage = "O campo telefone é obrigatório.")]
-        public required string Phone { get; set; }
+        [Required(ErrorMessage = "O campo data de nascimento é obrigatório.")]
+        public required DateOnly DateBirth { get; set; }
     }
 }

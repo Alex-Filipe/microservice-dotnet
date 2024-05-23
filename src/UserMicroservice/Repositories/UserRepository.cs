@@ -1,8 +1,5 @@
-using System;
-using Microsoft.EntityFrameworkCore;
-using UserMicroserice.Dtos;
+using UserMicroserice.Dtos.UserDTOs;
 using UserMicroservice.Database;
-using UserMicroservice.Dtos;
 using UserMicroservice.Interfaces;
 using UserMicroservice.Models;
 
@@ -51,7 +48,7 @@ namespace UserMicroservice.Repositories
                                    Id = user.Id,
                                    Name = user.Name,
                                    Email = user.Email,
-                                   Phone = user.Phone
+                                   DateBirth = user.DateBirth
                                })
                                .OrderBy(u => u.Name)];
             }
@@ -71,7 +68,7 @@ namespace UserMicroservice.Repositories
                     Name = newUser.Name,
                     Email = newUser.Email,
                     Password = newUser.Password,
-                    Phone = newUser.Phone
+                    DateBirth = newUser.DateBirth
                 };
 
                 _context.Users.Add(user);
@@ -97,7 +94,7 @@ namespace UserMicroservice.Repositories
                                    Id = user.Id,
                                    Name = user.Name,
                                    Email = user.Email,
-                                   Phone = user.Phone
+                                   DateBirth = user.DateBirth
                                })
                                .FirstOrDefault();
             }
@@ -114,7 +111,7 @@ namespace UserMicroservice.Repositories
             {
                 existingUser.Name = updatedUser.Name;
                 existingUser.Email = updatedUser.Email;
-                existingUser.Phone = updatedUser.Phone;
+                existingUser.DateBirth = updatedUser.DateBirth;
 
                 _context.SaveChanges();
                 transaction.Commit();

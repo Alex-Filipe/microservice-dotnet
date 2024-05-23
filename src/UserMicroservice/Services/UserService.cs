@@ -1,12 +1,7 @@
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Threading.Tasks;
 using UserMicroservice.Producers;
-using UserMicroservice.Dtos;
 using UserMicroservice.Interfaces;
-using UserMicroserice.Dtos;
-using UserMicroservice.Models;
+using UserMicroserice.Dtos.UserDTOs;
+
 
 namespace UserMicroservice.Services
 {
@@ -42,7 +37,7 @@ namespace UserMicroservice.Services
                     Name = user.Name,
                     Email = user.Email,
                     Password = hashedPassword,
-                    Phone = user.Phone
+                    DateBirth = user.DateBirth
                 };
 
                 _userRepository.CreateUser(newUser);

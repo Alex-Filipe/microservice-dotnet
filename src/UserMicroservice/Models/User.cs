@@ -19,7 +19,7 @@ namespace UserMicroservice.Models
         [Column("password")]
         public required string Password { get; set; }
 
-        [Column("phone")]
-        public required string Phone { get; set; }
+        [Column("date_birth")]
+        public required DateOnly DateBirth { get; set; }
     }
 }
