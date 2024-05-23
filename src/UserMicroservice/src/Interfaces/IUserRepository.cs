@@ -1,7 +1,7 @@
-using UserMicroserice.Dtos.UserDTOs;
-using UserMicroservice.Models;
+using UserMicroserice.src.Dtos.UserDTOs;
+using UserMicroservice.src.Models;
 
-namespace UserMicroservice.Interfaces
+namespace UserMicroservice.src.Interfaces
 {
     public interface IUserRepository
     {

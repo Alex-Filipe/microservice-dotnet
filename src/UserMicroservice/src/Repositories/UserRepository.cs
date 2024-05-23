@@ -1,9 +1,9 @@
-using UserMicroserice.Dtos.UserDTOs;
-using UserMicroservice.Database;
-using UserMicroservice.Interfaces;
-using UserMicroservice.Models;
+using UserMicroserice.src.Dtos.UserDTOs;
+using UserMicroservice.src.Database;
+using UserMicroservice.src.Interfaces;
+using UserMicroservice.src.Models;
 
-namespace UserMicroservice.Repositories
+namespace UserMicroservice.src.Repositories
 {
     public class UserRepository(ApplicationDbContext context) : IUserRepository
     {

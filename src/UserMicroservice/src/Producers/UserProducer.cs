@@ -1,7 +1,7 @@
 using System.Text;
 using RabbitMQ.Client;
 
-namespace UserMicroservice.Producers
+namespace UserMicroservice.src.Producers
 {
     public class UserProducer(IConfiguration configuration)
     {

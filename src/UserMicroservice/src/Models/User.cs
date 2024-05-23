@@ -1,7 +1,7 @@
 using System.ComponentModel.DataAnnotations;
 using System.ComponentModel.DataAnnotations.Schema;
 
-namespace UserMicroservice.Models
+namespace UserMicroservice.src.Models
 {
     [Table("usuarios")]
     public class User : BaseEntity

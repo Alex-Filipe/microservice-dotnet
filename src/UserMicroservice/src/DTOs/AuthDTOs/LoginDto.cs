@@ -1,6 +1,6 @@
 ﻿using System.ComponentModel.DataAnnotations;
 
-namespace UserMicroserice.Dtos.AuthDtos
+namespace UserMicroserice.src.Dtos.AuthDtos
 {
     public class LoginDto
     {

@@ -1,9 +1,9 @@
-using UserMicroservice.Producers;
-using UserMicroservice.Interfaces;
-using UserMicroserice.Dtos.UserDTOs;
+using UserMicroservice.src.Producers;
+using UserMicroservice.src.Interfaces;
+using UserMicroserice.src.Dtos.UserDTOs;
 
 
-namespace UserMicroservice.Services
+namespace UserMicroservice.src.Services
 {
     public class UserService(IUserRepository userRepository, UserProducer userProducer)
     {

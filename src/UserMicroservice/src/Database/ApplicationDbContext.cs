@@ -1,7 +1,7 @@
 ﻿using Microsoft.EntityFrameworkCore;
-using UserMicroservice.Models;
+using UserMicroservice.src.Models;
 
-namespace UserMicroservice.Database;
+namespace UserMicroservice.src.Database;
 public class ApplicationDbContext(DbContextOptions<ApplicationDbContext> options) : DbContext(options)
 {
     // Adds automatically to created_at and updated_at

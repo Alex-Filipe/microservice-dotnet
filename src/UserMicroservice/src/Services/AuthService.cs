@@ -2,10 +2,10 @@
 using System.IdentityModel.Tokens.Jwt;
 using System.Security.Claims;
 using System.Text;
-using UserMicroserice.Dtos.AuthDtos;
-using UserMicroservice.Interfaces;
+using UserMicroserice.src.Dtos.AuthDtos;
+using UserMicroservice.src.Interfaces;
 
-namespace UserMicroservice.Services
+namespace UserMicroservice.src.Services
 {
     public class AuthService(IConfiguration configuration, IUserRepository userRepository)
     {

@@ -2,11 +2,11 @@ using System.Text;
 using Microsoft.AspNetCore.Authentication.JwtBearer;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.IdentityModel.Tokens;
-using UserMicroservice.Database;
-using UserMicroservice.Interfaces;
-using UserMicroservice.Producers;
-using UserMicroservice.Repositories;
-using UserMicroservice.Services;
+using UserMicroservice.src.Database;
+using UserMicroservice.src.Interfaces;
+using UserMicroservice.src.Producers;
+using UserMicroservice.src.Repositories;
+using UserMicroservice.src.Services;
 
 var builder = WebApplication.CreateBuilder(args);
 

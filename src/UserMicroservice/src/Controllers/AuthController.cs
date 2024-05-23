@@ -1,8 +1,8 @@
 ﻿using Microsoft.AspNetCore.Mvc;
-using UserMicroserice.Dtos.AuthDtos;
-using UserMicroservice.Services;
+using UserMicroserice.src.Dtos.AuthDtos;
+using UserMicroservice.src.Services;
 
-namespace UserMicroservice.Controllers
+namespace UserMicroservice.src.Controllers
 {
     [ApiController]
     [Route("api")]

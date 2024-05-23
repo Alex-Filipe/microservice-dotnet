@@ -1,6 +1,6 @@
 using System.ComponentModel.DataAnnotations.Schema;
 
-namespace UserMicroservice.Models
+namespace UserMicroservice.src.Models
 
 {
     public abstract class BaseEntity

@@ -1,6 +1,6 @@
 ﻿using System.ComponentModel.DataAnnotations;
 
-namespace UserMicroserice.Dtos.UserDTOs
+namespace UserMicroserice.src.Dtos.UserDTOs
 {
     public class CreateUserDto
     {

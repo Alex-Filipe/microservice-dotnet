@@ -1,4 +1,4 @@
-namespace UserMicroserice.Dtos.UserDTOs
+namespace UserMicroserice.src.Dtos.UserDTOs
 {
     public class AllUserDto
     {
