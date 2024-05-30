@@ -33,4 +33,6 @@ public class ApplicationDbContext(DbContextOptions<ApplicationDbContext> options
 
     // Tabelas
     public DbSet<User> Users { get; set; }
+
+    public DbSet<Role> Roles { get; set; }
 }
