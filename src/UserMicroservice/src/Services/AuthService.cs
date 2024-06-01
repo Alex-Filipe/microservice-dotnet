@@ -25,12 +25,12 @@ namespace UserMicroservice.src.Services
                 }
 
                 // Gere o token JWT se o login for bem-sucedido
-                var token = GenerateJwtToken(user.Email);
+                var access_token = GenerateJwtToken(user.Email);
                 var tokenExpire = TimeZoneInfo.ConvertTimeFromUtc(DateTime.UtcNow, TimeZoneInfo.FindSystemTimeZoneById("E. South America Standard Time")).AddHours(1);
 
                 return new
                 {
-                    access_token = token,
+                    token = access_token,
                     expires_in = tokenExpire.ToString("dd/MM/yyyy HH:mm:ss"),
                     user = new
                     {
